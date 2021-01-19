@@ -52,6 +52,8 @@ class ClientThread extends Thread {
       return;
     }
     try {
+      this.writer.println("connected");
+      this.writer.flush();
       String msg;
       while(this.running) {
         msg = this.reader.readLine();
@@ -85,6 +87,8 @@ class ClientThread extends Thread {
     }
     System.out.printf("Server Error: Unknown client type %s", command);
     System.out.flush();
+    this.writer.println("failed");
+    this.writer.flush();
     return false;
   }
 
