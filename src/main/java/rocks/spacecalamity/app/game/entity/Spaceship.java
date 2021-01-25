@@ -1,4 +1,5 @@
 package rocks.spacecalamity.app.game.entity;
+
 import java.util.ArrayList;
 
 public class Spaceship {
@@ -11,16 +12,16 @@ public class Spaceship {
     private ArrayList<GameObject> inventory;
     
     public Spaceship(int newHp, int newSpeed, int newCapacity, Location newLoc, ArrayList<Toggleable> newControls) {
-        hp = newHp;
-        speed = newSpeed;
-        capacity = newCapacity;
-        loc = newLoc;
-        controls = newControls;
+        this.hp = newHp;
+        this.speed = newSpeed;
+        this.capacity = newCapacity;
+        this.loc = newLoc;
+        this.controls = newControls;
     }
 
     public boolean addToInventory(GameObject newItem) {
-        if (inventory.size() < capacity) {
-            inventory.add(newItem);
+        if (this.inventory.size() < capacity) {
+            this.inventory.add(newItem);
             return true;
         }
         else {
@@ -29,8 +30,8 @@ public class Spaceship {
     }
 
     public boolean dropFromInventory(GameObject dropped) {
-        if (inventory.contains(dropped)) {
-            inventory.remove(dropped);
+        if (this.inventory.contains(dropped)) {
+            this.inventory.remove(dropped);
             return true;
         }
         else{
@@ -39,7 +40,7 @@ public class Spaceship {
     }
 
     public void restoreHp() {
-        hp = maxHp;
+        this.hp = maxHp;
     }
 
     /* need to implement storage aspect of spaceship */

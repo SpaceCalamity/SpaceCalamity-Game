@@ -1,4 +1,5 @@
 package rocks.spacecalamity.app.game.entity;
+
 import java.util.ArrayList;
 
 public class Location {
@@ -7,19 +8,19 @@ public class Location {
     private ArrayList<Toggleable> toggleables;
     
     public Location(String newName, ArrayList<Location> newExits) {
-        name = newName;
-        exits = newExits;
+        this.name = newName;
+        this.exits = newExits;
     }
 
     public void addExit(Location exit) {
-        if (!exit.name.equals(name)) {
-            exits.add(exit);
+        if (!exit.name.equals(this.name)) {
+            this.exits.add(exit);
         }
     }    
 
     public boolean checkExit(Location exit) {
-        for (int i = 0; i < exits.size(); i++) {
-            if (exits.get(i).name.equals(exit.name)) {
+        for (int i = 0; i < this.exits.size(); i++) {
+            if (this.exits.get(i).name.equals(exit.name)) {
                 return true;
             } 
         }
@@ -27,11 +28,11 @@ public class Location {
     }
 
     public ArrayList<Location> getExits() {
-        return exits;
+        return this.exits;
     }
 
     public boolean isHome() {
-        return name.equals("Home");
+        return this.name.equals("Home");
     }
 
 }

@@ -5,15 +5,19 @@ public class State {
     private String name;
 
     public State(boolean newCanToggle, String newName) {
-        canToggle = newCanToggle;
-        name = newName;
+        this.canToggle = newCanToggle;
+        this.name = newName;
     }
 
     public boolean getToggle() {
-        return canToggle;
+        return this.canToggle;
     }
 
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public void changeToggle() {
+        this.canToggle = !this.canToggle;
     }
 }

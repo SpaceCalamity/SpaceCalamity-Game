@@ -4,7 +4,7 @@ public class GameObject {
     private String name;
 
     public GameObject(String newName) {
-        name = newName;
+        this.name = newName;
     }
 
 }

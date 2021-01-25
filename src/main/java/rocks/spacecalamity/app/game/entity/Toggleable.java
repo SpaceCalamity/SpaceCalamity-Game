@@ -1,4 +1,5 @@
 package rocks.spacecalamity.app.game.entity;
+
 import java.util.ArrayList;
 
 public class Toggleable {
