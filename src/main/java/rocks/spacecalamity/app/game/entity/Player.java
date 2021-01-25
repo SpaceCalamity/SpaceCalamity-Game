@@ -7,6 +7,7 @@ public class Player {
     private int bankBalance;
     private String consoleMsg;
     private Spaceship ship;
+    private Location loc;
 
     public Player(String first, String last) {
         firstName = first;
@@ -40,6 +41,16 @@ public class Player {
             consoleMsg = "Insufficient balance.";
         }
     }   
+
+    public boolean goNewLoc(Location newLoc) {
+        if (loc.getExits().contains(newLoc)) {
+            loc = newLoc;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     public void resetCMSG() {
         consoleMsg = "";
