@@ -7,47 +7,53 @@ public class Player {
     private int bankBalance;
     private String consoleMsg;
     private Spaceship ship;
+    private Location loc;
 
     public Player(String first, String last) {
-        firstName = first;
-        lastName = last;
-        hp = 100;
-        bankBalance = 10;
+        this.firstName = first;
+        this.lastName = last;
+        this.hp = 100;
+        this.bankBalance = 10;
     }
 
     public String getName() {
-        return firstName + lastName;
+        return this.firstName + this.lastName;
     }
 
     public void setName(String newFirst, String newLast) {
-        firstName = newFirst;
-        lastName = newLast; 
+        this.firstName = newFirst;
+        this.lastName = newLast; 
     }
 
     public void restoreHp(int moreHp) {
-        hp += moreHp;
+        this.hp += moreHp;
     }
     
     public void deposit(int d) {
-        bankBalance += d;
+        this.bankBalance += d;
     }
 
     public void withdraw(int d) {
-        if (bankBalance >= d) {
-            bankBalance -= d;
+        if (this.bankBalance >= d) {
+            this.bankBalance -= d;
         }
         else {
-            consoleMsg = "Insufficient balance.";
+            this.consoleMsg = "Insufficient balance.";
         }
     }   
 
+    public boolean goNewLoc(Location newLoc) {
+        if (this.loc.getExits().contains(newLoc)) {
+            this.loc = newLoc;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public void resetCMSG() {
-        consoleMsg = "";
+        this.consoleMsg = "";
     }
-
-    public String speak(String t) {
-        return t;
-    }
-
 
 }
